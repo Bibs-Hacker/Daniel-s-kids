@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌏🪐Mera-B ꧁༒☬Ｋђค๒เ๒𝟗𝟗𝟖☬༒꧂ System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      color: cyan;
+      background-color: #000;
+    }
+
+    video#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: blur(5px) brightness(0.5);
+    }
+
+    .scanner-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 450px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 25px cyan;
+      text-align: center;
+      animation: glowBox 4s infinite alternate;
+    }
+
+    @keyframes glowBox {
+      0% { box-shadow: 0 0 15px cyan; }
+      100% { box-shadow: 0 0 30px #00fff7; }
+    }
+
+    h2 {
+      font-size: 1.4em;
+      color: cyan;
+      text-shadow: 0 0 10px cyan;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 0.95em;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #00ffee;
+      border-radius: 8px;
+      background-color: #111;
+      color: #0f0;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px #00fff0;
+    }
+
+    button {
+      padding: 12px 18px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 12px #00fff5;
+    }
+
+    .scan-btn {
+      background: #00ffff;
+      color: #000;
+    }
+
+    .music-btn {
+      background: #d500f9;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <video id="bg" autoplay muted loop>
+    <source src="background.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="scanner-box">
+    <h2>Mera-B ꧁༒☬Ｋђค๒เ๒𝟗𝟗𝟖☬༒꧂<br>System🌏🪐</h2>
+    <p>Enter Your WhatsApp Number With Country Code (without +):</p>
+    <input type="text" id="whatsapp" placeholder="Eg 2547xxxxxxxx">
+    <br>
+    <button class="scan-btn" onclick="scan()">Scan Session</button>
+    <button class="music-btn" onclick="toggleMusic()">🎵 Pause Music</button>
+  </div>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/A_A_Aalto/Magnetic_Presence/A_A_Aalto_-_07_-_Love_Song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function scan() {
+      const num = document.getElementById("whatsapp").value;
+      if (!num || num.length < 10) {
+        alert("Please enter a valid WhatsApp number.");
+        return;
+      }
+      alert("Scanning session for: " + num);
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      const btn = event.target;
+      if (music.paused) {
+        music.play();
+        btn.textContent = "🎵 Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "🎵 Play Music";
+      }
+    }
+  </script>
+
+</body>
+</html>
